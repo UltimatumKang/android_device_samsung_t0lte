@@ -3,6 +3,9 @@
     <!-- Whether device has hardware buttons -->
     <bool name="has_hardware_buttons">true</bool>
 
+    <!-- Whether or not to display the Spen settings -->
+    <bool name="config_stylusGestures">true</bool>
+
     <!-- Whether can use fast chage -->
     <bool name="has_fast_charge">false</bool>
 
