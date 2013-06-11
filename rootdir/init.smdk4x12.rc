@@ -69,7 +69,6 @@ on post-fs-data
      chown media_rw media_rw /data/media
 
 #QCRIL
-
     #Create QMUX deamon socket area
     mkdir /dev/socket/qmux_radio 0770 radio radio
     chmod 2770 /dev/socket/qmux_radio
@@ -175,6 +174,10 @@ on post-fs-data
     chown system system /sys/class/sec/sec_touchkey/timeout
     chmod 0660 /sys/class/sec/sec_touchkey/force_disable
     chown system system /sys/class/sec/sec_touchkey/force_disable
+
+# S-Pen
+    chown system system /sys/class/sec/sec_epen/epen_saving_mode
+    chmod 660 /sys/class/sec/sec_epen/epen_saving_mode
 
 # Permissions for LCD
     chown system radio /sys/class/lcd/panel/lcd_power
@@ -492,11 +495,6 @@ service diag_uart_log /system/bin/diag_uart_log
     user root
     group radio
 
-#service cpboot-daemon /sbin/cbd -d -p 10
-#    class main
-#    user root
-#    group radio cache inet misc audio sdcard_rw log
-
 service p2p_supplicant /system/bin/wpa_supplicant \
     -iwlan0 -Dnl80211 -c/data/misc/wifi/wpa_supplicant.conf -N \
     -ip2p0 -Dnl80211 -c/data/misc/wifi/p2p_supplicant.conf -e/data/misc/wifi/entropy.bin \
@@ -552,12 +550,6 @@ service iprenew_bnep0 /system/bin/dhcpcd -n
 	disabled
 	oneshot
 
-#service secstarter /system/bin/secstarter
-#NOT NEEDED
-#    class main
-#    user system
-#    group system
-
 service macloader /system/bin/macloader
     class main
     oneshot
@@ -607,13 +599,3 @@ service sensorhubservice /system/bin/sensorhubservice
     class main
     user system
     group input
-
-# TVout
-#service TvoutService_C /system/bin/bintvoutservice
-#    class main
-#    user system
-#    group graphics
-
-
-on property:ro.tvout.enable=false
-    stop TvoutService_C
