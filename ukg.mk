@@ -50,5 +50,6 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
 # hybrid
 PRODUCT_COPY_FILES +=  \
     vendor/ukg/prebuilt/hybrid_xhdpi_no_nav.conf:system/etc/beerbong/properties.conf \
+    vendor/ukg/prebuilt/bootanimation/bootanimation_1280_720.zip:system/media/bootanimation.zip \
     vendor/ukg/prebuilt/common/media/LMprec_508.emd:system/media/LMprec_508.emd \
     vendor/ukg/prebuilt/common/media/PFFprec_600.emd:system/media/PFFprec_600.emd
