@@ -31,6 +31,7 @@ COMMON_GLOBAL_CFLAGS += -DCAMERA_WITH_CITYID_PARAM
 
 # Kernel
 TARGET_KERNEL_SOURCE := kernel/samsung/smdk4412
+TARGET_KERNEL_CUSTOM_LINARO_TOOLCHAIN := arm-eabi-4.6/bin/arm-eabi-
 ifeq ($(TARGET_VOICE_TECH), cdma)
 TARGET_KERNEL_CONFIG := cyanogenmod_t0ltecdma_defconfig
 else
